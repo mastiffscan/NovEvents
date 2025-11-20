@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>#MastiffsCan Holiday Rush – December Trick Dog Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --green: #134e4a;
+      --green-light: #166534;
+      --red: #b91c1c;
+      --gold: #fbbf24;
+      --cream: #fffaf0;
+      --text-dark: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #083344 0, #020617 55%);
+      color: var(--text-dark);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .card {
+      max-width: 960px;
+      width: 100%;
+      background: var(--cream);
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+      border: 4px solid var(--green-light);
+    }
+
+    .card-header {
+      background: linear-gradient(
+        135deg,
+        var(--green) 0%,
+        #065f46 40%,
+        var(--red) 100%
+      );
+      color: #f9fafb;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo-wrap {
+      flex: 0 0 160px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-wrap img {
+      width: 140px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.45));
+    }
+
+    .header-text {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .badge-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.45);
+    }
+
+    .title {
+      margin: 0.5rem 0 0.25rem;
+      font-size: clamp(1.7rem, 2.1vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      opacity: 0.95;
+    }
+
+    .ribbon {
+      margin-top: 0.7rem;
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.08);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 1.75rem 1.75rem 2rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px dashed rgba(15, 23, 42, 0.14);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--green-light);
+    }
+
+    h2::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3);
+    }
+
+    h3 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1rem;
+      color: var(--red);
+    }
+
+    p {
+      margin: 0.35rem 0;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+      margin: 0.35rem 0 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    li + li {
+      margin-top: 0.25rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .info-card {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(15, 23, 42, 0.09);
+      padding: 0.9rem 1rem;
+      background: linear-gradient(
+        135deg,
+        rgba(248, 250, 252, 0.8),
+        rgba(254, 243, 199, 0.75)
+      );
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .info-card ul {
+      margin-top: 0.25rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: var(--green-light);
+    }
+
+    .note {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .flow-list {
+      counter-reset: trick;
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+    }
+
+    .flow-list li {
+      counter-increment: trick;
+      margin-bottom: 0.25rem;
+      padding-left: 2.1rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .flow-list li::before {
+      content: counter(trick);
+      position: absolute;
+      left: 0;
+      top: 0.06rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      border: 2px solid var(--green-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      background: #fefce8;
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+      border-top: 1px dashed rgba(15, 23, 42, 0.13);
+      padding-top: 0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      .card-header {
+        padding: 1.25rem;
+      }
+
+      .card-body {
+        padding: 1.25rem 1.25rem 1.4rem;
+      }
+
+      .logo-wrap {
+        flex: 0 0 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="card">
+      <header class="card-header">
+        <div class="logo-wrap">
+          <img src="/mnt/data/Beattheclock.png" alt="#MastiffsCan Holiday Rush logo – Beat the Clock" />
+        </div>
+        <div class="header-text">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            December Trick Dog Challenge
+          </div>
+          <h1 class="title">#MastiffsCan Holiday Rush</h1>
+          <p class="subtitle">
+            Do More With Your Mastiff – Beat the Clock and bring festive energy to your trick training.
+          </p>
+          <div class="ribbon">
+            A special challenge for members of the #MastiffsCan Facebook Group
+          </div>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <!-- Part One -->
+        <section class="section" id="part-one">
+          <h2>Part One: December Trick Dog Challenge – Holiday Rush</h2>
+          <p>
+            The holidays bring a flurry of excitement, and this month’s Trick Dog Challenge
+            will capture that festive energy in the best way possible. Do More With Your Dog’s
+            <span class="highlight">Beat the Clock (BTC)</span> title puts your speed and planning to the test:
+            complete 12 tricks in <strong>60 seconds</strong>, <strong>48 seconds</strong>, or an impressive
+            <strong>24 seconds</strong>.
+          </p>
+          <p>
+            There are no required difficulty levels or specific trick types—you can create your own.
+            The secret to success is sequencing, so map out your routine strategically. You might
+            even want to tape your trick list to the wall to keep yourself on track.
+          </p>
+          <p>
+            Already earned your BTC title? Try to beat your previous time. DMWYD will update your
+            title for free if you improve it.
+          </p>
+          <p>
+            Now it’s your turn—design the fastest, smoothest sequence of 12 tricks and share it
+            with the community. As of now, no Mastiff has achieved the <strong>BTC-24</strong>.
+            Can we build the perfect routine and make it happen?
+          </p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Requirements</h3>
+              <ul>
+                <li>Dog and handler must be members of the <span class="highlight">#MastiffsCan Facebook Group</span>.</li>
+                <li>Routine must include exactly 12 tricks.</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>To Enter</h3>
+              <ul>
+                <li>
+                  Submit your routine video to a Do More With Your Dog evaluator to earn the
+                  appropriate <strong>Beat the Clock</strong> title (BTC-60, BTC-48, or BTC-24).
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>Prizes</h3>
+              <ul>
+                <li>
+                  Complete a BTC title by <strong>12/31/2025</strong> to receive a
+                  <span class="highlight">Holiday Rush sticker</span>.
+                </li>
+                <li>
+                  Earn a BTC-60 or BTC-48 title to be automatically entered in a raffle
+                  for a shirt featuring the Holiday Rush logo.
+                </li>
+                <li>
+                  The <strong>first 10 handlers</strong> who earn <strong>BTC-24</strong> will each receive
+                  a Holiday Rush logo shirt.
+                </li>
+                <li>
+                  Already have a BTC title? Submit a new routine to be eligible for a sticker
+                  and the chance to win a shirt as well.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Part Two -->
+        <section class="section" id="part-two">
+          <h2>Part Two: BTC-24 Challenge – Ultra-Fast 12-Trick Sequence for Mastiffs</h2>
+
+          <p>
+            <strong>Goal:</strong> Complete 12 tricks in under 24 seconds.
+          </p>
+          <p>
+            <strong>Strategy:</strong> Use micro-movements, smooth body transitions, and paired tricks
+            that chain naturally with zero wasted motion.
+          </p>
+
+          <h3>Suggested 12-Trick Flow (zero wasted motion)</h3>
+          <ol class="flow-list">
+            <li><strong>Sit</strong> – Start position; easy and sets up the next trick.</li>
+            <li><strong>Down</strong> – Quick, clean transition from sit.</li>
+            <li><strong>Chin Rest / Head Down</strong> – From down, just a tiny movement; very fast.</li>
+            <li>
+              <strong>Sit Up</strong> – Pop back into a sit (optional: “sit pretty” if your Mastiff can
+              do it safely).
+            </li>
+            <li><strong>Stand</strong> – From sit to stand keeps momentum going.</li>
+            <li><strong>Spin (Left)</strong> – Immediate motion from standing.</li>
+            <li><strong>Spin (Right)</strong> – Mirrors the first spin; fast and flashy.</li>
+            <li>
+              <strong>Hand Touch (Left Hand)</strong> – Dog targets your hand from the stand/spin position.
+            </li>
+            <li>
+              <strong>Hand Touch (Right Hand)</strong> – Mirror of the previous trick; no repositioning.
+            </li>
+            <li><strong>Paw/Shake (Left)</strong> – Lift paw; dog is already in perfect position.</li>
+            <li><strong>Paw/Shake (Right)</strong> – Mirrors the left; fast and symmetrical.</li>
+            <li>
+              <strong>Bow</strong> – Dramatic finish that flows naturally from a standing position.
+            </li>
+          </ol>
+
+          <h3>Why This Sequence Works</h3>
+          <ul>
+            <li>No props required.</li>
+            <li>No repositioning—the dog remains directly in front of you.</li>
+            <li>Smooth transitions between sit, down, stand, and motion.</li>
+            <li>Paired and mirrored tricks reduce cognitive load for the dog.</li>
+            <li>High-certainty behaviors that work well for large breeds.</li>
+            <li>Avoids slower, space-consuming tricks like rollovers and figure-8 leg weaves.</li>
+          </ul>
+
+          <h3>Estimated Time for a Well-Trained Mastiff</h3>
+          <p>
+            With clean execution and a confident handler cue rhythm,
+            <strong>17–23 seconds</strong> is realistically achievable.
+            A Mastiff breaking the BTC-24 barrier is absolutely within reach using this style of sequence.
+          </p>
+
+          <p class="footer-note">
+            Train smart, keep it fun, and share your progress with the #MastiffsCan community.
+            Let’s see which Mastiff will be the first to officially conquer BTC-24 in the Holiday Rush.
+          </p>
+        </section>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
